@@ -1,0 +1,18 @@
+module circuito_1 (a,b,c,d,s0,s1);
+
+//SINAIS DE ENTRADA E SAÍDA:
+
+input a,b,c,d;
+output s0,s1;
+wire fio0,fio1,fio2;
+
+and (fio0,a);
+nand (fio1,c,b,fio0);
+or (fio2,fio1);
+xnor (s0,d,fio2);
+
+// FUNÇÃO LÓGICA USANDO ASSING:
+
+assign s1 = ((a & (~(b & c)) |d ));;
+
+endmodule
