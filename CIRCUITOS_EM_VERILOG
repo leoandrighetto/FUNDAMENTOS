@@ -1,0 +1,52 @@
+#CIRCUITO 1
+
+module circuito_1 (a,b,c,d,s0,s1);
+
+//SINAIS DE ENTRADA E SAÍDA:
+
+input a,b,c,d;
+output s0,s1;
+wire fio0,fio1,fio2;
+
+and (fio0,a);
+nand (fio1,c,b,fio0);
+or (fio2,fio1);
+xnor (s0,d,fio2);
+
+// FUNÇÃO LÓGICA USANDO ASSING:
+
+assign s1 = ((a & (~(b & c)) |d ));;
+
+endmodule
+
+CIRCUITO 2:
+
+CÓDIGO VERILOG:
+
+module circuito_1 (a,b,c,d,s0);
+
+//SINAIS DE ENTRADA E SAÍDA:
+
+input a,b,c,d;
+output s0;
+wire fio0,fio1,fio2;
+
+nor (fio0, a);
+xor (fio1, c, b, fio0);
+not(fio2, d);
+and (s0, fio2, fio1);
+
+// FUNÇÃO LÓGICA USANDO ASSING:
+
+//assign s1 = ~( |(b^c) ) & (~d);
+
+endmodule
+
+//PINOUT PITANGA
+
+a=sw0;
+b=sw1;
+c=sw2;
+d=sw3;
+
+s0=led0;
